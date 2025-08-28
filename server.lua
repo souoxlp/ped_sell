@@ -1,7 +1,30 @@
-RegisterNetEvent('ped_sell:venderItem', function(item, price)
-    local src = source
+local itemsForSale = {
+    water = 10,
+    bread = 15
+}
 
-    -- Verifica se o jogador tem o item
+local npcCoords = vector3(215.76, -810.12, 29.73) -- mesma coordenada do client
+
+local function DistCheck(playerId, coords, check)
+    local playerPed = GetPlayerPed(playerId)
+    local playerCoords = GetEntityCoords(playerPed)
+    local distance = #(playerCoords - coords)
+    return distance <= check
+end
+
+RegisterNetEvent('ped_sell:venderItem', function(item)
+    local src = source
+    local price = itemsForSale[item]
+    if not price then
+        TriggerClientEvent('ox_lib:notify', src, {type = 'error', description = 'Item inválido!'})
+        return
+    end
+
+    if not DistCheck(src, npcCoords, 3.0) then
+        TriggerClientEvent('ox_lib:notify', src, {type = 'error', description = 'Você está muito longe do vendedor!'})
+        return
+    end
+
     local itemCount = exports.ox_inventory:GetItem(src, item, nil, true)
     if type(itemCount) == "table" then
         itemCount = itemCount.count or 0
