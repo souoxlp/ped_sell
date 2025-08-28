@@ -17,11 +17,11 @@ If you wont to add more items just copy this code and add more,just change the t
                         
 Installation
 _________________________________________________
-Download the script
-Ensure the folder is named ped_sell
-Put the folder in your resources folder
-Add ensure ped_sell to your server.cfg
-Restart your server
+1.Download the script
+2.Ensure the folder is named ped_sell
+3.Put the folder in your resources folder
+4.Add ensure ped_sell to your server.cfg
+5.Restart your server
 
 Support
 ________________________________________________
