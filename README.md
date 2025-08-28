@@ -16,7 +16,7 @@ If you wont to add more items just copy this code and add more,just change the t
 Instalação
 _________________________________________________
 Download from Keymaster/Portal
-Ensure the folder is named AP5-Notify
+Ensure the folder is named ped_sell
 Put the folder in your resources folder
 Add ensure AP5-Notify to your server.cfg
 Restart your server
